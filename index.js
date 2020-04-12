@@ -30,11 +30,33 @@ function addtoClass() {
 
     let add = document.getElementById(day + "_" + section);
     let div = document.createElement("div");
-    div.id = add;
+    div.id = day + "_" + section + "_div";
     if (half_section == "正常") {
-        div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
-        document.getElementById(String(day) + "_" + String(section)).style.rowspan = "2";
+        if (weekly == "正常") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "单周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周(单)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "双周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周(双)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        }
+        $(document.getElementById(day + "_" + (Number(section)))).attr("rowspan", "2");
         document.getElementById(day + "_" + (Number(section) + 1)).style.display = "none";
+    } else if (half_section == "上半节") {
+        if (weekly == "正常") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + section + ")" + start_week + "-" + end_week + "周<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "单周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + section + ")" + start_week + "-" + end_week + "周(单)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "双周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + section + ")" + start_week + "-" + end_week + "周(双)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        }
+    } else if (half_section == "下半节") {
+        if (weekly == "正常") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + (Number(section) + 1) + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "单周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + (Number(section) + 1) + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周(单)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        } else if (weekly == "双周") {
+            div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + (Number(section) + 1) + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周(双)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
+        }
     }
     //为div创建属性class = "class_info"
     var divattr = document.createAttribute("class");
@@ -42,8 +64,7 @@ function addtoClass() {
     //把属性class = "class_info"添加到div
     div.setAttributeNode(divattr);
     add.appendChild(div);
-
-
+    document.getElementById(div.id).onclick = delclass(div.id);
     resetclass();
 }
 // 重置添加信息
@@ -57,4 +78,10 @@ function resetclass() {
     document.getElementById("class_place").value = "";
     document.getElementById("class_teacher").value = "";
     document.getElementById("class_name").value = "";
+}
+// 删除课程信息
+function delclass(id, n, m) {
+    document.getElementById(id).style.display = "none";
+    $(document.getElementById(n + "_" + m)).attr("rowspan", "1");
+    // document.getElementById(n + "_" + Number(m + 1)).style.display = "block";
 }
