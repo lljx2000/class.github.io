@@ -21,6 +21,10 @@ button {
     /*取消轮廓边框*/
 }
 
+button {
+    cursor: pointer;
+}
+
 ul {
     list-style: none;
 }
