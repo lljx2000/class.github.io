@@ -133,3 +133,10 @@ td {
     font-size: 12px;
     padding-bottom: 5px;
 }
+
+.btn {
+    position: fixed;
+    left: 0;
+    top: 70%;
+    float: left;
+}
