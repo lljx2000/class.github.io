@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程表软件</title>
+    <meta name="keywords" content="课程表制作、课程表生成">
+    <meta name="description" content="一个课程表软件">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <script src="./index.js"></script>
+    <header>
+        <div class="w">
+            <h1>基于JavaScript制作的课程表软件</h1>
+        </div>
+    </header>
+    <div id="AddInput">
+        <div class="Addclass">
+            <div class="w">
+                <div class="title">
+                    <span>输入课程表标题：</span>
+                    <input type="text" placeholder="例：2018级计算机学院计算机1811班课程表" id="title_in" />
+                </div>
+                <div class="class_info">
+                    <!-- 添加课表 -->
+                    <fieldset>
+                        <legend>填写课程信息</legend>
+                        <div class="class_info_time">
+                            <span>时间：</span>
+                            <select name="day" id="day">
+                                <option value="周一">周一</option>
+                                <option value="周二">周二</option>
+                                <option value="周三">周三</option>
+                                <option value="周四">周四</option>
+                                <option value="周五">周五</option>
+                                <option value="周六">周六</option>
+                                <option value="周日">周日</option>
+                            </select>
+                            <span>节数：</span>
+                            <select name="section" id="section">
+                                <option value="第一大节">第一大节</option>
+                                <option value="第二大节">第二大节</option>
+                                <option value="第三大节">第三大节</option>
+                                <option value="第四大节">第四大节</option>
+                                <option value="第五大节">第五大节</option>
+                                <option value="第六大节">第六大节</option>
+                            </select>
+                            <select name="half_section" id="half_section">
+                                <option value="正常">正常</option>
+                                <option value="上半节">上半节</option>
+                                <option value="下半节">下半节</option>
+                            </select>
+                        </div>
+                        <div class="class_info_week">
+                            <span>课程开始周：</span>
+                            <select name="start_week">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                            </select>
+                            <span>课程结束周：</span>
+                            <select name="end_week">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                            </select>
+                            <select name="weekly">
+                                <option value="正常">正常</option>
+                                <option value="单周">单周</option>
+                                <option value="双周">双周</option>
+                            </select>
+                        </div>
+                        <div class="class_info_name">
+                            <span>课程名称：</span>
+                            <input type="text" placeholder="例：数据结构与算法" />
+                        </div>
+                        <div class="class_info_place">
+                            <span>教室位置：</span>
+                            <input type="text" placeholder="例：一教A101" />
+                        </div>
+                        <div class="class_info_teacher">
+                            <span>教师姓名：</span>
+                            <input type="text" placeholder="陈群" />
+                        </div>
+                        <div class="class_info_btn">
+                            <button>Submit</button>
+                            <button>Reset</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ShowClass">
+        <div class="w" style="text-align: center;">
+            <table align="center" class="showclass">
+                <caption>
+                    <div class="class_title">
+                        <h2 id="title_d">2018级计算机学院计算机1811班课程表</h2>
+                    </div>
+                </caption>
+                <thead>
+                    <tr>
+                        <td>时间段</td>
+                        <td>节次</td>
+                        <td>星期一</td>
+                        <td>星期二</td>
+                        <td>星期三</td>
+                        <td>星期四</td>
+                        <td>星期五</td>
+                        <td>星期六</td>
+                        <td>星期日</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">上午</td>
+                        <td>1</td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>数据结构与算法课程设计</b><br />
+                                <span>
+                                    时间：(1-2节)1-16周<br />
+                                    教师姓名：陈群<br />
+                                    教室位置：实验楼218
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>毛泽东思想和中国特色社会主义理论体系概论</b><br />
+                                <span>
+                                    时间：(1-2节)1-16周<br />
+                                    教师姓名：孙亚东<br />
+                                    教室位置：二教E406
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>操作系统</b><br />
+                                <span>
+                                    时间：(1-2节)1-15周(单)<br />
+                                    教师姓名：汪元卉<br />
+                                    教室位置：一教B106
+                                </span>
+                            </div>
+                            <div class="class_info">
+                                <b>操作系统</b><br />
+                                <span>
+                                    时间：(1-2节)2-16周(双)<br />
+                                    教师姓名：汪元卉<br />
+                                    教室位置：一教A206
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>毛泽东思想和中国特色社会主义理论体系概论</b><br />
+                                <span>
+                                    时间：(3-4节)1-16周<br />
+                                    教师姓名：孙亚东<br />
+                                    教室位置：二教E406
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>数据库概论</b><br />
+                                <span>
+                                    时间：(3-4节)1-15周(单)<br />
+                                    教师姓名：曾志平<br />
+                                    教室位置：实验楼217
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>编译原理</b><br />
+                                <span>
+                                    时间：(3-4节)2-16周(双)<br />
+                                    教师姓名：陈天煌<br />
+                                    教室位置：二教E105
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>大学英语BⅣ</b><br />
+                                <span>
+                                    时间：(3-4节)1-16周<br />
+                                    教师姓名：甘惠侨<br />
+                                    教室位置：二教D502
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td rowspan="6">
+                            <div class="class_info">
+                                <b>创业基础与实践Ⅰ</b><br />
+                                <span>
+                                    时间：(3-6节)2-3周<br />
+                                    教师姓名：马永骏<br />
+                                    教室位置：二教E305
+                                </span>
+                            </div>
+                            <div class="class_info">
+                                <b>创业基础与实践Ⅰ</b><br />
+                                <span>
+                                    时间：(3-8节)4周<br />
+                                    教师姓名：马永骏<br />
+                                    教室位置：二教E305
+                                </span>
+                            </div>
+                            <div class="class_info">
+                                <b>创业基础与实践Ⅰ</b><br />
+                                <span>
+                                    时间：(7-8节)2周<br />
+                                    教师姓名：马永骏<br />
+                                    教室位置：二教E305
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">下午</td>
+                        <td>5</td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>计算机体系结构</b><br />
+                                <span>
+                                    时间：(5-6节)1-16周<br />
+                                    教师姓名：张荣高<br />
+                                    教室位置：一教B201
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>数据库概论</b><br />
+                                <span>
+                                    时间：(5-6节)2-16周(双)<br />
+                                    教师姓名：曾志平<br />
+                                    教室位置：二教E205
+                                </span>
+                            </div>
+                            <div class="class_info">
+                                <b>形势与政策Ⅳ</b><br />
+                                <span>
+                                    时间：(5-6节)9-15周(单)<br />
+                                    教师姓名：杨宪钊<br />
+                                    教室位置：二教E105
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>数据库概论</b><br />
+                                <span>
+                                    时间：(7-8节)1-16周<br />
+                                    教师姓名：曾志平<br />
+                                    教室位置：二教E205
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>电子电路基础</b><br />
+                                <span>
+                                    时间：(7-8节)1-16周<br />
+                                    教师姓名：李湘君<br />
+                                    教室位置：一教B105
+                                </span>
+                            </div>
+                        </td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>电子电路基础</b><br />
+                                <span>
+                                    时间：(7-8节)1-15周(单)<br />
+                                    教师姓名：李湘君<br />
+                                    教室位置：420电路实验室(二)
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">晚上</td>
+                        <td>9</td>
+                        <td rowspan="2">
+                            <div class="class_info">
+                                <b>编译原理</b><br />
+                                <span>
+                                    时间：(9-10节)1-16周<br />
+                                    教师姓名：陈天煌<br />
+                                    教室位置：二教D408
+                                </span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+    <!-- 悬浮按钮 -->
+    <div class="btn w">
+        <input type="button" id="showInput" onclick="showInputTable()" value="显示/隐藏输入区" />
+        <button type="button" onclick="updateInfo()">更新课表</button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+body {
+    background-color: #fff;
+    font-family: "Microsoft YaHei",
+        "Heiti SC",
+        tahoma,
+        arial,
+        "Hiragino Sans GB",
+        "宋体",
+        sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input,
+button {
+    border: 0;
+    outline: none;
+    /*取消轮廓边框*/
+}
+
+ul {
+    list-style: none;
+}
+
+.w {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    background-color: cornflowerblue;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.Addclass {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    height: 40px;
+}
+
+
+.title input {
+    width: 300px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+fieldset {
+    height: 255px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+fieldset span {
+    padding-left: 15px;
+}
+
+legend {
+    padding-left: 10px;
+}
+
+select {
+    font-size: 14px;
+}
+
+.class_info_time,
+.class_info_week,
+.class_info_name,
+.class_info_place,
+.class_info_teacher {
+    padding-top: 15px;
+    padding-left: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+select[name="half_section"],
+select[name="weekly"] {
+    margin-left: 10px;
+}
+
+.class_info_name input,
+.class_info_place input,
+.class_info_teacher input {
+    border-bottom: 1px solid #ccc;
+}
+
+.class_info_btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+fieldset button {
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #f10215;
+}
+
+.showclass {
+    margin: 10px auto;
+}
+
+table {
+    width: 1000px;
+    height: 800px;
+    border-collapse: collapse;
+    border: none;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 3px;
+}
+
+.class_info {
+    font-size: 12px;
+    padding-bottom: 5px;
+}
