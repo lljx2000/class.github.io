@@ -140,3 +140,7 @@ td {
     top: 70%;
     float: left;
 }
+
+.td_none {
+    display: none;
+}

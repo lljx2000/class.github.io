@@ -81,7 +81,20 @@ function resetclass() {
 }
 // 删除课程信息
 function delclass(id, n, m) {
+    $('#id').empty();
+    let h = document.getElementById(id).style.height;
     document.getElementById(id).style.display = "none";
-    $(document.getElementById(n + "_" + m)).attr("rowspan", "1");
-    // document.getElementById(n + "_" + Number(m + 1)).style.display = "block";
+    document.getElementById(id).style.height = h * 0.5;
+    $(document.getElementById(String(n) + "_" + m)).attr("rowspan", "1");
+    document.getElementById(String(n) + "_" + Number(m + 1)).style.display = "block";
+}
+// 导出结果
+function exportResult() {
+    $("#myTable").table2excel({
+        filename: "Class" + new Date().getTime() + ".xls", //文件名称
+        name: "Excel Document Name.xlsx",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+    });
 }

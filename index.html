@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.table2excel.js"></script>
+    <script type="text/javascript" src="./js/jquery.table2excel.min.js"></script>
 </head>
 
 <body>
@@ -196,11 +198,11 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td id="1_2" style="display: none;"></td>
+                        <td id="1_2" class="td_none"></td>
                         <td id="2_2"></td>
-                        <td id="3_2" style="display: none;"></td>
+                        <td id="3_2" class="td_none"></td>
                         <td id="4_2"></td>
-                        <td id="5_2" style="display: none;"></td>
+                        <td id="5_2" class="td_none"></td>
                         <td id="6_2"></td>
                         <td id="7_2"></td>
                     </tr>
@@ -277,12 +279,12 @@
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td id="1_4" style="display: none;"></td>
-                        <td id="2_4" style="display: none;"></td>
-                        <td id="3_4" style="display: none;"></td>
-                        <td id="4_4" style="display: none;"></td>
+                        <td id="1_4" class="td_none"></td>
+                        <td id="2_4" class="td_none"></td>
+                        <td id="3_4" class="td_none"></td>
+                        <td id="4_4" class="td_none"></td>
                         <td id="5_4"></td>
-                        <td id="6_4" style="display: none;"></td>
+                        <td id="6_4" class="td_none"></td>
                         <td id="7_4"></td>
                     </tr>
                     <tr>
@@ -319,17 +321,17 @@
                         <td id="3_5"></td>
                         <td id="4_5"></td>
                         <td id="5_5"></td>
-                        <td id="6_5" style="display: none;"></td>
+                        <td id="6_5" class="td_none"></td>
                         <td id="7_5"></td>
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td id="1_6" style="display: none;"></td>
-                        <td id="2_6" style="display: none;"></td>
+                        <td id="1_6" class="td_none"></td>
+                        <td id="2_6" class="td_none"></td>
                         <td id="3_6"></td>
                         <td id="4_6"></td>
                         <td id="5_6"></td>
-                        <td id="6_6" style="display: none;"></td>
+                        <td id="6_6" class="td_none"></td>
                         <td id="7_6"></td>
                     </tr>
                     <tr>
@@ -366,17 +368,17 @@
                         </td>
                         <td id="4_7"></td>
                         <td id="5_7"></td>
-                        <td id="6_7" style="display: none;"></td>
+                        <td id="6_7" class="td_none"></td>
                         <td id="7_7"></td>
                     </tr>
                     <tr>
                         <td>8</td>
-                        <td id="1_8" style="display: none;"></td>
-                        <td id="2_8" style="display: none;"></td>
-                        <td id="3_8" style="display: none;"></td>
+                        <td id="1_8" class="td_none"></td>
+                        <td id="2_8" class="td_none"></td>
+                        <td id="3_8" class="td_none"></td>
                         <td id="4_8"></td>
                         <td id="5_8"></td>
-                        <td id="6_8" style="display: none;"></td>
+                        <td id="6_8" class="td_none"></td>
                         <td id="7_8"></td>
                     </tr>
                     <tr>
@@ -401,7 +403,7 @@
                     </tr>
                     <tr>
                         <td>10</td>
-                        <td id="1_10" style="display: none;"></td>
+                        <td id="1_10" class="td_none"></td>
                         <td id="2_10"></td>
                         <td id="3_10"></td>
                         <td id="4_10"></td>
@@ -440,8 +442,10 @@
         <button type="button" id="showInput" onclick="showInputTable()">显示/隐藏输入区</button>
         <br />
         <button type="button" onclick="updateInfo()">更新课表</button>
+        <br />
+        <button type="button" onclick="exportResult()">导出课表</button>
     </div>
-    <script src="./index.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
