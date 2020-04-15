@@ -89,7 +89,7 @@ function resetclass() {
 }
 // 删除课程信息
 function delclass(id, n, m) {
-    var i = '#' + id;
+    let i = '#' + id;
     $(i).empty();
     let h = $(i).offsetHeight;
     document.getElementById(id).style.display = "none";
@@ -101,7 +101,7 @@ function delclass(id, n, m) {
 // 导出结果
 function exportResult() {
     $("#myTable").table2excel({
-        filename: "Class" + new Date().getTime() + ".xls", //文件名称
+        filename: "Class_Schedule" + ".xls", //文件名称
         name: "Excel Document Name.xlsx",
         exclude_img: true,
         exclude_links: true,
