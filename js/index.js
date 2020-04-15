@@ -39,7 +39,9 @@ function addtoClass() {
         } else if (weekly == "双周") {
             div.innerHTML = "<b>" + class_name + "</b><br /><span>时间:(" + section + "-" + (Number(section) + 1) + ")" + start_week + "-" + end_week + "周(双)<br />教师姓名:" + class_teacher + "<br />教室位置:" + class_place + "</span>";
         }
-        $(document.getElementById(day + "_" + (Number(section)))).attr("rowspan", "2");
+        let i = '#' + day + "_" + section;
+        $(i).attr("rowspan", "2");
+        let j = '#' + day + "_" + (Number(section) + 1);
         document.getElementById(day + "_" + (Number(section) + 1)).style.display = "none";
     } else if (half_section == "上半节") {
         if (weekly == "正常") {
@@ -64,7 +66,13 @@ function addtoClass() {
     //把属性class = "class_info"添加到div
     div.setAttributeNode(divattr);
     add.appendChild(div);
-    document.getElementById(div.id).onclick = delclass(div.id);
+    let d = String(day) + "_" + section;
+    let n = String(day) + "_" + String(Number(section) + 1);
+    let h = "#" + div.id;
+    let m = document.getElementById(div.id);
+    m.onclick = () => {
+        delclass(div.id, d, n);
+    };
     resetclass();
 }
 // 重置添加信息
@@ -81,12 +89,14 @@ function resetclass() {
 }
 // 删除课程信息
 function delclass(id, n, m) {
-    $('#id').empty();
-    let h = document.getElementById(id).style.height;
+    var i = '#' + id;
+    $(i).empty();
+    let h = $(i).offsetHeight;
     document.getElementById(id).style.display = "none";
-    document.getElementById(id).style.height = h * 0.5;
-    $(document.getElementById(String(n) + "_" + m)).attr("rowspan", "1");
-    document.getElementById(String(n) + "_" + Number(m + 1)).style.display = "block";
+    document.getElementById(id).style.height = h * 0.5 + "px";
+    var c = '#' + n;
+    $(c).attr("rowspan", "1");
+    document.getElementById(m).style.display = "table-cell";
 }
 // 导出结果
 function exportResult() {
